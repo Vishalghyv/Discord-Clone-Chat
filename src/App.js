@@ -1,12 +1,13 @@
 import React from "react";
-import { Counter } from "./features/Counter";
 import "./App.css";
 import SideBar from "./features/SideBar";
+import Chat from "./features/Chat";
 
 function App() {
   return (
     <div className="App">
       <SideBar />
+      <Chat />
     </div>
   );
 }
