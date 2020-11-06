@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./SideBar.css";
 import ExpnadMore from "@material-ui/icons/ExpandMore";
 import Add from "@material-ui/icons/Add";
 
 import SideBarChannel from "./SideBarChannel";
-
+import db, { auth } from "./firebase";
 import {
   SignalCellularAlt,
   Call,
@@ -15,7 +15,32 @@ import {
 } from "@material-ui/icons";
 
 import { Avatar } from "@material-ui/core";
+import { useSelector } from "react-redux";
+import { selectUser } from "./features/userSlice";
 function SideBar() {
+  const user = useSelector(selectUser);
+  const [channels, setChannels] = useState([]);
+
+  const handleAddChannel = () => {
+    const channelName = prompt("Enter new Channel");
+
+    if (channelName) {
+      db.collection("channels").add({
+        channelName: channelName
+      });
+    }
+  };
+
+  useEffect(() => {
+    db.collection("channels").onSnapshot((snapshot) => {
+      setChannels(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          channel: doc.data()
+        }))
+      );
+    });
+  }, []);
   return (
     <div className="sidebar">
       <div className="sidebar__top">
@@ -29,17 +54,20 @@ function SideBar() {
             <h4>Text Channels</h4>
           </div>
 
-          <Add className="sidebar__addChannels" />
+          <Add onClick={handleAddChannel} className="sidebar__addChannels" />
         </div>
         <div className="sidebar__channelsList">
-          <SideBarChannel />
-          <SideBarChannel />
-          <SideBarChannel />
-          <SideBarChannel />
+          {channels.map(({ id, channel }) => (
+            <SideBarChannel
+              key={id}
+              id={id}
+              channelName={channel.channelName}
+            />
+          ))}
         </div>
       </div>
       <div className="sidebar__voice">
-        <SignalCellularAlt className="sidebar__voiceIcon" fontSize="Large" />
+        <SignalCellularAlt className="sidebar__voiceIcon" fontSize="large" />
         <div className="sidebar__voiceInfo">
           <h3>Voice Connected</h3>
           <p>Stream</p>
@@ -50,10 +78,10 @@ function SideBar() {
         </div>
       </div>
       <div className="sidebar__profile">
-        <Avatar />
+        <Avatar onClick={() => auth.signOut()} src={user.photo} />
         <div className="sidebar__profileInfo">
-          <h3>Name</h3>
-          <p>Username</p>
+          <h3>{user.displayName}</h3>
+          <p>#{user.uid.substring(0, 5)}</p>
         </div>
         <div className="sidebar__profileIcons">
           <Mic />

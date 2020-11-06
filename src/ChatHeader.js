@@ -9,13 +9,13 @@ import {
   SearchRounded,
   SendRounded
 } from "@material-ui/icons";
-function ChatHeader() {
+function ChatHeader({ channelName }) {
   return (
     <div className="chatHeader">
       <div className="chatHeader__left">
         <h3>
           <span className="chatHeader__hash">#</span>
-          Header
+          {channelName}
         </h3>
       </div>
       <div className="chatHeader__right">
