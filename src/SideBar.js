@@ -4,7 +4,9 @@ import ExpnadMore from "@material-ui/icons/ExpandMore";
 import Add from "@material-ui/icons/Add";
 
 import SideBarChannel from "./SideBarChannel";
-import db, { auth } from "./firebase";
+import SideBarHeader from "./SideBarHeader";
+import SideBarChannelHeader from "./SideBarChannelHeader";
+import db from "./firebase";
 import {
   SignalCellularAlt,
   Call,
@@ -14,21 +16,13 @@ import {
   Settings
 } from "@material-ui/icons";
 
-import { Avatar } from "@material-ui/core";
 import { useSelector } from "react-redux";
 import { selectUser } from "./features/userSlice";
+import { Avatar } from "@material-ui/core";
 function SideBar() {
   const user = useSelector(selectUser);
   const [channels, setChannels] = useState([]);
-
-  const handleAddChannel = () => {
-    const channelName = prompt("Enter new Channel");
-    if (channelName) {
-      db.collection("channels").add({
-        channelName: channelName
-      });
-    }
-  };
+  //const [addChannel, addChannels] = useState(false);
 
   useEffect(() => {
     db.collection("channels").onSnapshot((snapshot) => {
@@ -42,19 +36,9 @@ function SideBar() {
   }, []);
   return (
     <div className="sidebar">
-      <div className="sidebar__top">
-        <h2>{user.displayName}</h2>
-        <ExpnadMore />
-      </div>
+      <SideBarHeader userName={user.displayName} />
       <div className="sidebar__channels">
-        <div className="sidebar__channelsHeader">
-          <div className="sidebar__header">
-            <ExpnadMore />
-            <h4>Text Channels</h4>
-          </div>
-
-          <Add onClick={handleAddChannel} className="sidebar__addChannels" />
-        </div>
+        <SideBarChannelHeader />
         <div className="sidebar__channelsList">
           {channels.map(({ id, channel }) => (
             <SideBarChannel
@@ -77,7 +61,7 @@ function SideBar() {
         </div>
       </div>
       <div className="sidebar__profile">
-        <Avatar onClick={() => auth.signOut()} src={user.photo} />
+        <Avatar src={user.photo} />
         <div className="sidebar__profileInfo">
           <h3>{user.displayName}</h3>
           <p>#{user.uid.substring(0, 5)}</p>
