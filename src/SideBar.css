@@ -82,3 +82,7 @@
 .sidebar__profileIcons > .MuiSvgIcon-root {
   padding: 10px;
 }
+
+.sidebar__menu {
+  background-color: #2f3135;
+}

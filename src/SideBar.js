@@ -23,7 +23,6 @@ function SideBar() {
 
   const handleAddChannel = () => {
     const channelName = prompt("Enter new Channel");
-
     if (channelName) {
       db.collection("channels").add({
         channelName: channelName
@@ -44,7 +43,7 @@ function SideBar() {
   return (
     <div className="sidebar">
       <div className="sidebar__top">
-        <h2>Hellsdso</h2>
+        <h2>{user.displayName}</h2>
         <ExpnadMore />
       </div>
       <div className="sidebar__channels">

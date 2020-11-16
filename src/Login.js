@@ -9,9 +9,13 @@ function Login() {
   };
   return (
     <div className="login">
-      Login
-      <div className="login__logo">Image</div>
-      <Button onClick={signIn}>Sign IN </Button>
+      <div className="loginPanel">
+        Login
+        <div className="login__logo">Image</div>
+        <Button onClick={signIn} className="loginSignIn">
+          Sign IN
+        </Button>
+      </div>
     </div>
   );
 }

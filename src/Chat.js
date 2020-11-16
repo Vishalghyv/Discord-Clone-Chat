@@ -78,9 +78,9 @@ function Chat() {
           </button>
         </form>
         <div className="chat__inputIcons">
-          <CardGiftcard fontSize="Large" />
-          <Gif fontSize="Large" />
-          <EmojiEmotions fontSize="Large" />
+          <CardGiftcard fontSize="large" />
+          <Gif fontSize="large" />
+          <EmojiEmotions fontSize="large" />
         </div>
       </div>
     </div>
