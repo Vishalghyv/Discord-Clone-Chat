@@ -16,7 +16,7 @@ function SideBarChannelHeader() {
     <div className="sidebar__channelsHeader">
       <div className="sidebar__header">
         <ExpnadMore />
-        <h4>Text Channels</h4>
+        <h4>Channels</h4>
       </div>
 
       <Add onClick={handleAddChannel} className="sidebar__addChannels" />

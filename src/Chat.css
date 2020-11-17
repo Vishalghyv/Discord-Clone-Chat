@@ -3,8 +3,10 @@
   flex-direction: column;
   flex: 0.75;
   background-color: #363a3f;
+  max-height: 100vh;
   height: 100vh;
 }
+
 .chat__input {
   display: flex;
   justify-content: space-between;
@@ -41,4 +43,62 @@
 
 .chat__messages {
   flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
+}
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #474b53;
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2f3135;
+}
+
+.chat__welcome {
+  font-size: 30px;
+  color: lightgrey;
+  padding: 30px;
+  font-weight: bold;
+}
+
+.chat__welcomeDetail {
+  font-size: medium;
+  color: grey;
+  font-weight: normal;
+  padding: 10px;
+  line-height: 30px;
+}
+
+.chat__welcomeDetail a {
+  color: grey;
+  text-decoration: none; /* no underline */
+}
+
+.chat__welcomeDetail a:hover {
+  color: lightgrey;
+  text-decoration: none; /* no underline */
+}
+
+.chat__empty {
+  font-size: 25px;
+  color: lightgrey;
+  padding: 30px;
+  /* font-weight: bold; */
+}
+
+.emojiPicker {
+  position: absolute;
+  bottom: 110px;
+  right: 20px;
+  z-index: 2;
 }

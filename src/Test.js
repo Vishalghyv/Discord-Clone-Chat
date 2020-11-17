@@ -17,6 +17,13 @@ export default function SideBarChannelHeader() {
   const handleClose = () => {
     setOpen(false);
   };
+  <InputEmoji
+    value={input}
+    onChange={setInput}
+    cleanOnEnter
+    onEnter={sendMessage}
+    placeholder="Type a message"
+  />;
 
   return (
     <div>

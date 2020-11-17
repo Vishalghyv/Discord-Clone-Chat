@@ -6,6 +6,8 @@ import {
 } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import "emoji-mart/css/emoji-mart.css";
+import { Picker } from "emoji-mart";
 
 import "./Chat.css";
 import ChatHeader from "./ChatHeader";
@@ -15,24 +17,71 @@ import Message from "./Message";
 import db from "./firebase";
 import firebase from "firebase";
 
+function Default({ messageLength, channelName, userName }) {
+  if (messageLength !== 0) {
+    return null;
+  } else {
+    if (channelName === null) {
+      return (
+        <div className="chat__welcome">
+          Welcome {userName}, to Chat{" "}
+          <span role="img" aria-labelledby="jsx-a11y/accessible-emoji">
+            🎉🎉
+          </span>
+          <div className="chat__welcomeDetail">
+            Click on any channel to start chatting regarding that topic
+            <br />
+            Made by Vishal Chaudhary
+            <br />
+            Code can be found on -{" "}
+            <a href="https://github.com/Vishalghyv/Cloned">
+              https://github.com/Vishalghyv/Cloned
+            </a>
+          </div>
+        </div>
+      );
+    }
+    return (
+      <div className="chat__empty">
+        Welcome to {channelName},<br />
+        Send a message to start the conversation
+      </div>
+    );
+  }
+}
+
 function Chat() {
   const user = useSelector(selectUser);
   const channelId = useSelector(selectChannelId);
   const channelName = useSelector(selectChannelName);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(null);
   const [messages, setMessages] = useState([]);
+  const [emoji, setEmoji] = useState(false);
 
   useEffect(() => {
     if (channelId) {
       db.collection("channels")
         .doc(channelId)
         .collection("messages")
-        .orderBy("timestamp", "asc")
+        .orderBy("timestamp", "desc")
         .onSnapshot((snapshot) => {
           setMessages(snapshot.docs.map((doc) => doc.data()));
         });
     }
   }, [channelId]);
+
+  const pickEmoji = () => {
+    setEmoji(!emoji);
+  };
+
+  const onEmojiClick = (e) => {
+    let sym = e.unified.split("-");
+    let codesArray = [];
+    sym.forEach((el) => codesArray.push("0x" + el));
+    let emoji = String.fromCodePoint(...codesArray);
+
+    setInput(input + emoji);
+  };
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -48,6 +97,11 @@ function Chat() {
   return (
     <div className="chat">
       <ChatHeader channelName={channelName} />
+      <Default
+        messageLength={messages.length}
+        channelName={channelName}
+        userName={user.displayName}
+      />
       <div className="chat__messages">
         {messages.map((message) => (
           <Message
@@ -74,15 +128,20 @@ function Chat() {
             disabled={!channelId}
             onClick={sendMessage}
           >
-            Send Message{" "}
+            Send Message
           </button>
         </form>
         <div className="chat__inputIcons">
           <CardGiftcard fontSize="large" />
           <Gif fontSize="large" />
-          <EmojiEmotions fontSize="large" />
+          <EmojiEmotions fontSize="large" onClick={pickEmoji} />
         </div>
       </div>
+      {emoji ? (
+        <div className="emojiPicker">
+          <Picker onSelect={onEmojiClick} />
+        </div>
+      ) : null}
     </div>
   );
 }

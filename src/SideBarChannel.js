@@ -1,5 +1,5 @@
-import { DeleteOutline } from "@material-ui/icons";
 import React, { useState } from "react";
+import { DeleteOutline } from "@material-ui/icons";
 import { useDispatch } from "react-redux";
 import { setChannelInfo } from "./features/appSlice";
 import "./SideBarChannel.css";
