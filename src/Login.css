@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
 }
-.loginPanel {
+.loginLeft {
   display: flex;
   text-align: center;
   flex-direction: column;
@@ -15,19 +15,34 @@
   justify-content: center;
   background-color: gray;
   color: white;
+  width: 25%;
+  height: 60%;
+  font-size: 35px;
+  line-height: 65px;
+  font-weight: bold;
+  border-radius: 10px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.loginRight {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   width: 40%;
   height: 60%;
-  font-size: 30px;
-  border: 1px solid black;
-  border-radius: 20px;
+  font-size: 25px;
+  border-radius: 10px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 .loginSignIn {
   padding: 10px 20px;
   margin: 20px;
-  color: lightcyan;
-  border: 1px solid black;
-  background-color: darkgray;
-  border-radius: 10px;
-  font-size: 30px;
+  width: 300px;
+  height: 70px;
 }

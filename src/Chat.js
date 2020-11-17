@@ -139,7 +139,12 @@ function Chat() {
       </div>
       {emoji ? (
         <div className="emojiPicker">
-          <Picker onSelect={onEmojiClick} />
+          <Picker
+            onSelect={onEmojiClick}
+            onClick={pickEmoji}
+            title="Describe more with emoji…"
+            emoji="point_up"
+          />
         </div>
       ) : null}
     </div>

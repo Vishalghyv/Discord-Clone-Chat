@@ -9,6 +9,13 @@
   margin-left: 20px;
 }
 
+.message__info h4 {
+  margin-bottom: 0px;
+}
+.message__info p {
+  margin-top: 10px;
+}
+
 .message__timeStamp {
   color: gray;
   margin-left: 20px;
