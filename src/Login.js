@@ -3,21 +3,29 @@ import React from "react";
 import { auth, provider } from "./firebase";
 import "./Login.css";
 import google from "./siginInGoogle.png";
+import back from "./back.jpg";
+import dark from "./dark.png";
+import Typewriter from "typewriter-effect";
 
 function Login() {
   const signIn = () => {
     auth.signInWithPopup(provider).catch((error) => alert(error));
   };
   return (
-    <div className="login">
+    <div className="login" style={{ backgroundImage: `url(${back})` }}>
       <div className="loginLeft">
-        WELCOME
-        <br />
-        to
-        <br />
-        <span role="img" aria-labelledby="jsx-a11y/accessible-emoji">
-          CHAT 🎉🎉
-        </span>
+        <Typewriter
+          options={{
+            strings: ["WELCOME TO CHAT"],
+            autoStart: true,
+            loop: true
+          }}
+        />
+        {/* <br /> */}
+        {/* <br /> */}
+        <div className="dark">
+          <img src={dark} alt="" className="darkImage" />
+        </div>
       </div>
       <div className="loginRight">
         To start Chatting Login with Gmail
