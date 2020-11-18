@@ -16,6 +16,7 @@ import { selectUser } from "./features/userSlice";
 import Message from "./Message";
 import db from "./firebase";
 import firebase from "firebase";
+import Profile from "./Profile";
 
 function Default({ messageLength, channelName, userName }) {
   if (messageLength !== 0) {

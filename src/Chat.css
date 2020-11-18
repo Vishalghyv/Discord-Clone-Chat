@@ -1,7 +1,15 @@
 .chat {
   display: flex;
   flex-direction: column;
-  flex: 0.75;
+  flex: 1;
+  background-color: #363a3f;
+  max-height: 100vh;
+  height: 100vh;
+}
+.chat__main {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
   background-color: #363a3f;
   max-height: 100vh;
   height: 100vh;

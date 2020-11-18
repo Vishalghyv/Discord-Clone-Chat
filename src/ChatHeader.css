@@ -10,11 +10,18 @@
   font-size: 30px;
   padding: 10px;
   color: gray;
+  cursor: pointer;
 }
 
 .chatHeader__left > h3 {
   display: flex;
   align-items: center;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.chatHeader__left > h3:hover {
+  color: white;
 }
 
 .chatHeader__right {
