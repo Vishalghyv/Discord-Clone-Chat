@@ -32,6 +32,16 @@ function Default({ messageLength, channelName, userName }) {
           <div className="chat__welcomeDetail">
             Click on any channel to start chatting regarding that topic
             <br />
+            Features included in the app -
+            <ul>
+              <li> Safe Login using gmail with firebase</li>
+              <li> Persistent Login and Logout</li>
+              <li> Personal Profile as per gmail account</li>
+              <li> Addition of channels with channel name input</li>
+              <li> Deletion of channels form delete icon</li>
+              <li> Live custom messaging with emoji and text using firebase</li>
+              <li> Custom messages with profiles</li>
+            </ul>
             Made by Vishal Chaudhary
             <br />
             Code can be found on -{" "}

@@ -25,14 +25,16 @@ function SideBar() {
   //const [addChannel, addChannels] = useState(false);
 
   useEffect(() => {
-    db.collection("channels").onSnapshot((snapshot) => {
-      setChannels(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          channel: doc.data()
-        }))
-      );
-    });
+    db.collection("channels")
+      .orderBy("channelName", "asc")
+      .onSnapshot((snapshot) => {
+        setChannels(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            channel: doc.data()
+          }))
+        );
+      });
   }, []);
   return (
     <div className="sidebar">
