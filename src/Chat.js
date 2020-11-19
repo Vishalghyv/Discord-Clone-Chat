@@ -45,8 +45,8 @@ function Default({ messageLength, channelName, userName }) {
             Made by Vishal Chaudhary
             <br />
             Code can be found on -{" "}
-            <a href="https://github.com/Vishalghyv/Cloned">
-              https://github.com/Vishalghyv/Cloned
+            <a href="https://github.com/Vishalghyv/Chat">
+              https://github.com/Vishalghyv/Chat
             </a>
           </div>
         </div>
