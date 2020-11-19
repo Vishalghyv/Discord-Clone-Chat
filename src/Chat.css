@@ -110,3 +110,7 @@
   right: 20px;
   z-index: 2;
 }
+
+.Emoji:hover {
+  cursor: pointer;
+}

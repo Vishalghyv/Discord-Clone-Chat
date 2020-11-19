@@ -61,6 +61,7 @@ function SideBarHeader({ userName }) {
         aria-controls={open ? "menu-list-grow" : undefined}
         aria-haspopup="true"
         onClick={handleToggle}
+        className="Expand"
       />
       <div className={classes.root}>
         <div>

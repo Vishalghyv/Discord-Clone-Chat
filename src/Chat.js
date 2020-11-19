@@ -143,9 +143,13 @@ function Chat() {
           </button>
         </form>
         <div className="chat__inputIcons">
+          <EmojiEmotions
+            fontSize="large"
+            onClick={pickEmoji}
+            className="Emoji"
+          />
           <CardGiftcard fontSize="large" />
           <Gif fontSize="large" />
-          <EmojiEmotions fontSize="large" onClick={pickEmoji} />
         </div>
       </div>
       {emoji ? (
