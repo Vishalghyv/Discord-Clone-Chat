@@ -2,8 +2,6 @@ import React from "react";
 import "./Profile.css";
 
 export default function Profile({ user }) {
-  console.log(user);
-  // return null;
   return (
     <div className="profile">
       <img src={user.photo} alt="" width="200px" height="200px" />

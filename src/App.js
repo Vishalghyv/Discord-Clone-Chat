@@ -11,8 +11,8 @@ function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   useEffect(() => {
+    // Authentication State Changed.
     auth.onAuthStateChanged((authUser) => {
-      console.log("uers", authUser);
       if (authUser) {
         //User logged in
         dispatch(

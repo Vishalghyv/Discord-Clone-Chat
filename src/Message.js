@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Message.css";
-import yoda from "./tenor.gif";
 
 import {
   Avatar,

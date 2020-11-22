@@ -16,8 +16,8 @@ import { selectUser } from "./features/userSlice";
 import Message from "./Message";
 import db from "./firebase";
 import firebase from "firebase";
-import Profile from "./Profile";
 
+// Default Screen.
 function Default({ messageLength, channelName, userName }) {
   if (messageLength !== 0) {
     return null;
@@ -61,6 +61,7 @@ function Default({ messageLength, channelName, userName }) {
   }
 }
 
+// Chat Screen.
 function Chat() {
   const user = useSelector(selectUser);
   const channelId = useSelector(selectChannelId);
@@ -69,6 +70,7 @@ function Chat() {
   const [messages, setMessages] = useState([]);
   const [emoji, setEmoji] = useState(false);
 
+  // Getting Channels.
   useEffect(() => {
     if (channelId) {
       db.collection("channels")

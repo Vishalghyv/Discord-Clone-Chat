@@ -10,6 +10,7 @@ function SideBarChannel({ id, channelName }) {
 
   const [didMount, setDidMount] = useState(false);
 
+  // Basic Channel deletion.
   const deleteChannel = () => {
     if (channelName) {
       db.collection("channels")
@@ -27,6 +28,8 @@ function SideBarChannel({ id, channelName }) {
         });
     }
   };
+
+  // If Channel exsits.
 
   if (didMount) {
     return null;

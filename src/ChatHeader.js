@@ -9,6 +9,8 @@ import {
   SearchRounded,
   SendRounded
 } from "@material-ui/icons";
+
+// Chat Header.
 function ChatHeader({ channelName }) {
   return (
     <div className="chatHeader">

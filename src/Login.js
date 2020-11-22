@@ -7,6 +7,7 @@ import back from "./back.jpg";
 import dark from "./dark.png";
 import Typewriter from "typewriter-effect";
 
+// Login Screen.
 function Login() {
   const signIn = () => {
     auth.signInWithPopup(provider).catch((error) => alert(error));
@@ -21,15 +22,12 @@ function Login() {
             loop: true
           }}
         />
-        {/* <br /> */}
-        {/* <br /> */}
         <div className="dark">
           <img src={dark} alt="" className="darkImage" />
         </div>
       </div>
       <div className="loginRight">
         To start Chatting Login with Gmail
-        {/* <div className="login__logo">Image</div> */}
         <Button onClick={signIn} className="loginSignIn">
           <img src={google} alt="" width="100%" height="100%" />
         </Button>

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./SideBar.css";
-import ExpnadMore from "@material-ui/icons/ExpandMore";
-import Add from "@material-ui/icons/Add";
 
 import SideBarChannel from "./SideBarChannel";
 import SideBarHeader from "./SideBarHeader";
@@ -22,8 +20,8 @@ import { Avatar } from "@material-ui/core";
 function SideBar() {
   const user = useSelector(selectUser);
   const [channels, setChannels] = useState([]);
-  //const [addChannel, addChannels] = useState(false);
 
+  // Getting Channel lists.
   useEffect(() => {
     db.collection("channels")
       .orderBy("channelName", "asc")

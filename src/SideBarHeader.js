@@ -1,7 +1,6 @@
 import React from "react";
 import "./SideBar.css";
 import ExpnadMore from "@material-ui/icons/ExpandMore";
-import Button from "@material-ui/core/Button";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
@@ -43,7 +42,6 @@ function SideBarHeader({ userName }) {
     }
   }
 
-  // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
   React.useEffect(() => {
     if (prevOpen.current === true && open === false) {
