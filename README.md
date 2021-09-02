@@ -1,6 +1,6 @@
 # Chat
 
-The project is a protoype for chatting and representaing usage of combination of react and firebase
+The project is a clone of discord app with my personal modification and representing usage of combination of react and firebase
 
 ## Login Page
 
