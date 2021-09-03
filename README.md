@@ -1,4 +1,4 @@
-# Chat
+# Discord Clone Chat
 
 The project is a clone of discord app with my personal modification and representing usage of combination of react and firebase
 
