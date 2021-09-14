@@ -1,6 +1,6 @@
 # Discord Clone Chat
 
-The project is a clone of discord app with my personal modification and representing usage of combination of react and firebase
+Robust Discord application clone using React and Firebase with hot reload capability and frictionless Google based sign-in.
 
 ## Login Page
 
